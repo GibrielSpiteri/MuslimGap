@@ -3,14 +3,15 @@ Freelance work - Blog app developed with Flutter and Dart
 
 ## Video Walkthrough
 
-Walkthrough of implemented features:
 Version 1.1
-Added a dark theme styling and container around each post
-Also added serparate views for stories and challenges of the day
-<img src='MGA_2.mp4' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+- Added a dark theme styling and container around each post
+- Also added serparate views for stories and challenges of the day
+<img src='MGA_2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 Version 1.0
-Created the basic ability to pull and view posts from the WordPress API
+
+- Started development by pulling and viewing posts from the WordPress API
 <img src='MGA_1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
