@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'MuslimGap',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        brightness: Brightness.dark,
         fontFamily: 'Raleway',
         primarySwatch: Colors.blue,
       ),

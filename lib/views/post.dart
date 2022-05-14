@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 
 class PostPage extends StatefulWidget {
-  final String imageUrl, title, desc;
-  const PostPage(
-      {Key? key,
-      required this.title,
-      required this.desc,
-      required this.imageUrl})
-      : super(key: key);
+  final String title, desc;
+  const PostPage({
+    Key? key,
+    required this.title,
+    required this.desc,
+  }) : super(key: key);
 
   @override
   _PostPageState createState() => _PostPageState();
@@ -17,7 +16,12 @@ class PostPage extends StatefulWidget {
 class _PostPageState extends State<PostPage> {
   Widget postContent(htmlContent) {
     return HtmlWidget(
-      htmlContent, // required, type String
+      htmlContent,
+      textStyle: const TextStyle(
+          fontFamily: "Raleway",
+          fontSize: 16,
+          fontWeight: FontWeight.normal), // required, type String
+      factoryBuilder: () => FontSizeOverride(),
       //onErrorBuilder: (context, element, error) =>
       //Text('$element error: $error'),
       //Container(),
@@ -45,7 +49,8 @@ class _PostPageState extends State<PostPage> {
               const SizedBox(height: 8),
               Text(
                 widget.title,
-                style: const TextStyle(fontSize: 18),
+                style: const TextStyle(fontSize: 20),
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 6),
               postContent(
@@ -56,5 +61,20 @@ class _PostPageState extends State<PostPage> {
         ),
       ),
     );
+  }
+}
+
+class FontSizeOverride extends WidgetFactory {
+  @override
+  void parseStyle(BuildMetadata meta, style) {
+    if (style.property == 'font-size') {
+      meta.tsb.enqueue((tsh, _) {
+        final style = tsh.style.copyWith(fontSize: 16);
+        return tsh.copyWith(style: style);
+      });
+      return;
+    }
+
+    super.parseStyle(meta, style);
   }
 }
